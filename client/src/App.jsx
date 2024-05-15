@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="w-full h-screen bg-black flex justify-start font-['Poppins'] duration-300">
       {/* this is the content for the SideBar */}
-      <div className="w-[400px] h-full p-4 flex-col space-y-4">
+      <div className="hidden md:block w-[400px] h-full p-4 flex-col space-y-4">
         {/* this is the upper rounded rectangle of th sidebar */}
         <div className="w-full h-[60px] bg-white/20 rounded-3xl flex justify-between p-4 items-center text-2xl text-white font-medium">
           {/* this is the back button */}
@@ -24,7 +24,7 @@ function App() {
       </div>
 
       {/* this is the main content container of the page */}
-      <div className="w-[calc(100%-400px)] h-full flex-col justify-between">
+      <div className="w-full md:w-[calc(100%-400px)] h-full flex-col justify-between">
 
         {/* this is the navbar of the page */}
         <div id="navbar" className="w-full h-[60px] mt-4 text-white rounded-full flex items-center justify-between px-4">
@@ -53,7 +53,8 @@ function App() {
         <div className="w-full h-[90%] flex justify-center items-center">
 
           {/* this is the modal for the newchat content page */}
-          <div className="w-[650px] h-[500px] bg-white/20 rounded-3xl flex-col p-4">
+          <div className="w-full md:w-[650px] h-[80%] md:h-[500px] bg-white/20 rounded-3xl flex-col justify-between space-y-6 md:space-y-0 p-4 m-2 md:m-0">
+
             <div className="w-full h-[100px] flex justify-center items-center">
               <span className="px-3 py-2.5 hover:animate-spin bg-white/30 rounded-full">
                 <i class="ri-wechat-channels-line text-blue-700 text-4xl"></i> {/* this is the icon for the new chat */}
@@ -72,10 +73,10 @@ function App() {
             </div>
 
             {/* this contains the suggestion tiles for the new chat */}
-            <div className="w-full h-[180px] flex space-x-5 justify-center items-center p-2">
-              <div className="w-1/3 h-full bg-white/30 rounded-2xl"></div>
-              <div className="w-1/3 h-full bg-white/30 rounded-2xl"></div>
-              <div className="w-1/3 h-full bg-white/30 rounded-2xl"></div>
+            <div className="w-full h-[150px] md:h-[180px] flex space-x-5 justify-center items-center md:p-2 overflow-x-auto">
+              <div className="w-[100px] md:w-1/3 h-full bg-white/30 rounded-2xl"></div>
+              <div className="w-[100px] md:w-1/3 h-full bg-white/30 rounded-2xl"></div>
+              <div className="w-[100px] md:w-1/3 h-full bg-white/30 rounded-2xl"></div>
             </div>
 
             {/* this contains the chatbox input for the new Chat */}
@@ -84,14 +85,17 @@ function App() {
                 <span className="px-2">
                   <i class="ri-wechat-channels-line text-black text-4xl"></i>
                 </span>
-                <input type="text" placeholder="Enter chat name" className="w-full h-full px-2 py-1 rounded-xl font-medium" onChange={(e) => {setChatName(e.target.value)}} />
+                <input type="text" placeholder="Enter chat name" className="w-full h-full px-2 py-1 rounded-xl font-medium focus:outline-none"
+                // onChange={(e) => {setChatName(e.target.value)}} 
+                />
 
                 {/* this is the microphone button toggle */}
                 <span className="text-2xl px-4 py-1 hover:bg-white/20 duration-100 hover:duration-100 rounded-full cursor-pointer" onClick={() => {setMicrophone(!Microphone)}}>
                   {Microphone? (<i class="ri-mic-fill text-blue-600"></i>) : (<i class="ri-mic-line"></i>)}
                 </span>
 
-                <div className="px-4 h-full flex justify-center items-center bg-blue-600 text-white rounded-xl">
+                {/* this is the send button for the message that is to be sent */}
+                <div className="px-4 h-full flex justify-center items-center bg-blue-600 text-white rounded-xl" onClick={() => {console.log("send button clicked")}}>
                   <i class="ri-arrow-right-line text-3xl"></i>
                 </div>
               </div>
