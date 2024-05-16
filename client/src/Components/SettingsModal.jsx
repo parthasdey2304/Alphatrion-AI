@@ -1,6 +1,6 @@
-const SettingsModal = () => {
+const SettingsModal = ({ visibility=false }) => {
   return (
-    <div>SettingsModal</div>
+    <div className={`w-[200px] h-[200px] bg-white/30 rounded-2xl absolute z-2` + (visibility? "hidden" : "")}></div>
   )
 }
 
